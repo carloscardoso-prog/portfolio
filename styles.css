@@ -1,0 +1,212 @@
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background-color: black;
+    font-family: 'Montserrat';
+    font-size: 22px;
+}
+
+a{
+    font-style: normal;
+    color: #000000;
+    text-decoration: none;
+}
+
+a{
+    font-size: 1rem;
+}
+
+.background-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('bgi.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.7;
+    filter: blur(1vh);
+    z-index: -2;
+}
+
+.container,
+.container-bg {
+    width: calc(100% - 24vh);
+    height: calc(100vh - 8vh);
+    margin: 4vh 0 4vh 8vh;
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0);
+    box-shadow: 0px 0vh 2vh 0.3vh rgba(0, 0, 0, 0.3);
+    border-radius: 4vh;
+    min-width: 120vh;
+    max-height: 92vh;
+    overflow: auto;
+}
+
+.container {
+    display: grid;
+    grid-template-areas: 
+      'nome titulo titulo foto foto foto'
+      'descricao spacing spacing projetos projetos projetos'
+    ;
+}
+ 
+.container-bg {
+    background-color: rgba(255, 255, 255, 0.5);
+    opacity: 0.7;
+    z-index: -1;
+}
+
+.section-one,
+.section-two,
+.section-three,
+.section-four,
+.section-five,
+.section-six {
+    position: relative;
+    margin: 5vh 0vh 0vh 0vh;
+}
+
+.section-one {
+    grid-area: nome;
+}
+
+.section-two {
+    grid-area: titulo;
+}
+
+.section-three {
+    grid-area: foto;
+}
+
+.section-four {
+    grid-area: descricao!important;
+}
+
+.section-five {
+    grid-area: spacing;
+    margin: 20vh;
+}
+
+.section-six {
+    grid-area: projetos;
+}
+
+.nome {
+    text-align: right;
+    left: 10vh;
+}
+
+.foto-div img {
+    border-radius: 40vh;
+    height: 35vh;
+}
+
+.descricao {
+    margin: 5vh;
+    text-align: right;
+}
+
+.projetos{
+    width: 90%;
+}
+
+.descricao, .projetos{
+    height: 40vh;
+}
+
+.custom-scrollbar{
+    overflow: auto;
+}
+
+@media (min-height: 120vh) {
+    .custom-scrollbar {
+      height: 20vh;
+    }
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+    width: 0; 
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background-color: transparent; 
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+    background-color: transparent; 
+}
+
+.circle-shadow {
+    width: 8vh;
+    height: 8vh;
+    background-color: #000000;
+    box-shadow: 0px 0vh 2vh 0.3vh rgba(0, 0, 0, 0.3);
+    border-radius: 50%;
+    position: absolute;
+    top: 40vh;
+    left: 3.7vh;
+    z-index: -1;
+}
+
+.circle {
+    width: 8vh;
+    height: 8vh;
+    background-color: rgb(118 118 118 / 100%);
+    border-radius: 50%;
+    position: absolute;
+    top: 40vh;
+    left: 3.7vh;
+}
+
+.circle i {
+    font-size: 4vh;
+    margin-left: 2.3vh;
+    margin-top: 2vh;
+}
+
+.fa-bars {
+    transition: transform 0.4s ease;
+    cursor: pointer;
+    position: absolute;
+}
+
+.github-link,
+.pdf-link,
+.linkedin-link {
+    position: absolute;
+    top: 50%;
+    left: 34% !important;
+    transform: translate(-50%, -50%) rotate(0deg);
+    z-index: 0;
+}
+
+.cylinder-bg {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 8vh;
+    height: 0;
+    margin-bottom: 4vh !important;
+    background-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0px 0vh 2vh 0.3vh rgba(0, 0, 0, 0.5);
+    border-radius: 30vh 30vh 0 0;
+    z-index: -1;
+    transition: height 0.4s ease;
+}
+
+.closed .circle:not(.fa-bars) {
+    clip-path: circle(0%);
+}
+
+.open .circle:not(.fa-bars) {
+    clip-path: none;
+}
