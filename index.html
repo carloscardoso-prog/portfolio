@@ -1,79 +1,238 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Carlos Cardoso</title>
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css"><link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    <meta charset="UTF-8">
+    <meta nome="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carlos Cardoso</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css"><link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <div class="background-image"></div>
-  <div class="container custom-scrollbar">
-    <div class="section-one">
-      <div class="nome">
-        <h1>Carlos Cardoso</h1>
-        <p>Fullstack Developer</p>        
+  <div class="container">
+    <div class="row">
+      <div class="left">
+        <div class="left-inner">
+          <div class="site-header">
+            <img class="img-pfp" src="img/pfp2.jpg">
+            <h1 class="nome-funcao">Carlos Cardoso</h1>
+            <span class="nome-funcao">Fullstack Developer</span>
+          </div>
+          <nav class="site-nav">
+            <ul class="site-nav-ul">
+              <li class="page-nav-item">
+                <a href="#projetos" class="page-link active">
+                  <i class="fas fa-code-branch page-link-icon"></i>
+                  <span>Projetos</span>
+                </a>
+              </li>
+              <li class="page-nav-item">
+                <a href="#sobre" class="page-link">
+                  <i class="fas fa-users page-link-icon"></i>
+                  <span>Sobre Mim</span>
+                </a>
+              </li>
+              <li class="page-nav-item">
+                <a href="#baixar" class="page-link">
+                  <i class="fas fa-download page-link-icon"></i>
+                  <span>Baixar</span>
+                </a>
+              </li>
+              <li class="page-nav-item">
+                <a href="#email" class="page-link">
+                  <i class="fas fa-comments page-link-icon"></i>
+                  <span>Contate-me</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>        
       </div>
-    </div>
-    <div class="section-two">
-      <div class="titulo">
-        <p>&nbsp;</p>
-      </div>
-    </div>
-    <div class="section-three">
-      <div class="foto-div">
-        <img class="profile-img" src="pfp.jpg">
-      </div>
-    </div>
-    <div class="section-four">
-      <div class="descricao custom-scrollbar">
-        <h5 class="no-margin">Hello! I'm Carlos Cardoso, a Junior Fullstack Developer<br>from Belo Horizonte, Minas Gerais.</h5>
-        <h5 class="no-margin">I'm passionate about Linux and constantly<br>eager to learn and improve.</h5>
-        <h5>Currently my main focus is on PHP, JavaScript, TypeScript,<br>MariaDB/MySQL, and REST APIs.</h5>
-        <h5>This portfolio is currently in development, <br>So things may change.</h5>
-      </div>
-    </div>
-    <div class="section-five">
-      <div class="spacing">
-        <p>&nbsp;</p>
-      </div>
-    </div>
-    <div class="section-six">
-      <div class="projetos custom-scrollbar">
-        <p>My Projects:</p>
-        <h5 class="no-margin">
-          <a target="_blank" href="https://github.com/carloscardoso-prog/pinEApplecss">Remastered pinEApple Homepage</a>
-        </h5> 
-        <h5 class="no-margin">
-          <span title="Not publicly available yet.">D.A.M.N. (JS Browser Extension)</span>
-        </h5> 
-        <h5 class="no-margin">
-          <a target="_blank" href="https://github.com/carloscardoso-prog/cadastroDeCliente">Customer registration (PHP/JQuery/MariaDB) <br> +REST API</a>
-        </h5> 
-        <h5 class="no-margin">
-          <a target="_blank" href="https://github.com/carloscardoso-prog/ONNX-stablediffusion-autoconverter">SD AutoConverter (Python)</a>
-        </h5>
-        <h5 class="no-margin">
-          <a target="_blank" href="https://github.com/carloscardoso-prog/cat-api">Cat API (HTML/JQuery DOM)</a>
-        </h5>
-      </div>
-    </div>
-  </div>
-  <div class="container-bg"></div>
-  
-  <div class="circle-shadow closed">
-  </div>
-  <div class="circle closed">
-    <i class="fas fa-bars"></i>
-    <a target="_blank" class="github-link" href="https://github.com/carloscardoso-prog"><i class="fab fa-github"></i></a>
-    <a target="_blank" class="pdf-link"><i class="fas fa-file-pdf"></i></a>
-    <a target="_blank" class="linkedin-link" href="https://www.linkedin.com/in/carlos-eduardo-cardoso-silva/"><i class="fab fa-linkedin"></i></a>
-    <div class="cylinder-bg"></div>
-  </div>
+      <div class="right">
+        <main class="main">
+          <div id="projetos" class="page-content">
+            <nav class="black-bg nav-bar">
+              <ul>
+                <li>
+                  <a href="#" class="tab-link active" data-id="projetos-publicos">Públicos</a>
+                </li>
+                <li>
+                  <a href="#" class="tab-link" data-id="projetos-pessoais">Pessoais</a>
+                </li>
+                <li>
+                  <a href="#" class="tab-link" data-id="tecnologias">Tecnologias</a>
+                </li>
+              </ul>
+            </nav>
 
+            <div id="projetos-publicos" class="tab-content">
+              <div class="list">
+                <div class="list-item">          
+                  <a target="_blank" href="https://github.com/carloscardoso-prog/pinEApplecss">
+                      <img src="img/pineapple.png" alt="Image" class="list-item-img">
+                  </a>
+                  <a target="_blank" href="https://github.com/carloscardoso-prog/pinEApplecss">
+                      <div class="black-bg list-item-text">
+                          <h3 class="list-item-nome">pinEApple Home Page</h3>
+                          <p class="list-item-descricao">Reescrita da página inicial do pinEApple, compilado de versões EA do emulador yuzu.</p>
+                      </div>
+                  </a>
+                </div>
+                <div class="list-item">          
+                  <a target="_blank" href="https://github.com/carloscardoso-prog/ONNX-stablediffusion-autoconverter">
+                    <img src="img/sd.png" alt="Image" class="list-item-img">
+                  </a>
+                  <a target="_blank" href="https://github.com/carloscardoso-prog/ONNX-stablediffusion-autoconverter">
+                    <div class="black-bg list-item-text">
+                      <h3 class="list-item-nome">ONXX Autoconverter</h3>
+                      <p class="list-item-descricao">Pequeno script em Python que converte os arquivos ".safetensors" do Stable Diffusion.</p>
+                    </div>
+                  </a>
+                </div>
+                <div class="list-item">          
+                  <a>                  
+                    <img src="img/placeholder.png" alt="Image" class="list-item-img">
+                  </a>
+                  <a>        
+                    <div class="black-bg list-item-text">
+                      <h3 class="list-item-nome">D.A.M.N.</h3>
+                      <p class="list-item-descricao">Extensão em JS pra navegadores feitos em Chromium. (Ainda não disponível)</p>
+                    </div>
+                  </a>
+                </div>              
+              </div>
+            </div> 
+
+            <div id="projetos-pessoais" class="tab-content">
+              <div class="list">
+                <div class="list-item">          
+                  <a target="_blank" href="https://github.com/carloscardoso-prog/cat-api">
+                    <img src="img/cat.png" alt="Image" class="list-item-img">
+                  </a>
+                  <a target="_blank" href="https://github.com/carloscardoso-prog/cat-api">
+                    <div class="black-bg list-item-text">
+                      <h3 class="list-item-nome">Cat API</h3>
+                      <p class="list-item-descricao">Teste de consumo de uma API de imagens de gatos em PHP.</p>              
+                    </div>
+                  </a>
+                </div>
+                <div class="list-item">          
+                  <a target="_blank" href="https://github.com/carloscardoso-prog/cadastroDeCliente">
+                    <img src="img/planilha.png" alt="Image" class="list-item-img">
+                  </a>
+                  <a target="_blank" href="https://github.com/carloscardoso-prog/cadastroDeCliente">
+                    <div class="black-bg list-item-text">
+                      <h3 class="list-item-nome">Sistema de Cadastro de Clientes</h3>
+                      <p class="list-item-descricao">Sistema CRUD PHP/JQuery + AJAX em MVC de cadastro e controle de clientes.</p>                    
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div id="tecnologias" class="tab-content">
+              <div class="list">
+                <div class="list-item">          
+                  <img src="img/php.png" alt="Image" class="list-item-img">
+                  <div class="black-bg list-item-text">
+                    <h3 class="list-item-nome">PHP</h3>
+                    <p class="list-item-descricao"></p>              
+                  </div>
+                </div>
+                <div class="list-item">          
+                  <img src="img/mariadb.png" alt="Image" class="list-item-img">
+                  <div class="black-bg list-item-text">
+                    <h3 class="list-item-nome">MariaDB</h3>
+                    <p class="list-item-descricao"></p>                    
+                  </div>
+                </div>
+                <div class="list-item">          
+                  <img src="img/ts.png" alt="Image" class="list-item-img">
+                  <div class="black-bg list-item-text">
+                    <h3 class="list-item-nome">TypeScript</h3>
+                    <p class="list-item-descricao"></p>              
+                  </div>
+                </div>
+                <div class="list-item">          
+                  <img src="img/fedora.png" alt="Image" class="list-item-img">
+                  <div class="black-bg list-item-text">
+                    <h3 class="list-item-nome">Fedora</h3>
+                    <p class="list-item-descricao"></p>              
+                  </div>
+                </div>              
+              </div>
+            </div>
+          </div>
+
+          <div id="sobre" class="page-content">
+            <div class="black-bg mb-20 about-box-1">              
+              <h2 class="text-primary about-header">Sobre Mim</h2>
+              <div class="list-item list-item-2">                
+                <img class="list-item-img list-item-img-big" src="img/pfp.jpg">
+                <div class="list-item-text-2">
+                  <p>Olá! Meu nome é Carlos, sou Desenvolvedor Fullstack Júnior de Belo Horizonte, Minas Gerais.</p>
+                  <p>Sou apaixonado por Linux e estou sempre disposto para aprender e melhorar.</p>
+                  <p>Atualmente, meu foco principal é PHP, JavaScript, TypeScript,<br>MariaDB/MySQL e APIs REST.</p>
+                  <p>Este portfólio está atualmente em desenvolvimento, <br>Portanto, as coisas podem mudar.</p>
+                </div>                
+              </div>
+            </div>
+
+            <div class="black-bg mb-20 about-box-2">              
+              <div class="list-item list-item-2">                
+                <div class="list-item-text-2">
+                  <h2 class="text-primary">Redes Sociais</h2>
+                  <p>Caso queira me contatar, minhas redes sociais estão abaixo.</p>                  
+                </div>                
+                <img src="img/linux.png" alt="Image" class="list-item-img list-item-img-big img-right linux-image">                
+              </div>
+              <a target="_blank" href="https://github.com/carloscardoso-prog"><i class="fab fa-github"></i></a>
+              <a target="_blank" href="https://www.linkedin.com/in/carlos-eduardo-cardoso-silva/"><i class="fab fa-linkedin"></i></a>
+            </div>
+          </div>
+
+          <div id="baixar" class="page-content">
+            <div class="baixar-items">
+              <div class="black-bg baixar-item">
+                <div class="baixar-item-descricao">
+                  <h2 class="text-primary baixar-item-title">Baixar Currículo</h2>
+                  <p class="baixar-item-text">Deixo aqui disponível meu currículo caso seja necessário, ele contém as mesmas informações que este portfólio.</p>  
+                  <a target="_blank" href=""><i class="fas fa-file-pdf"></i></a>
+                </div>
+              </div>                         
+            </div>            
+          </div>
+          
+          <div id="email" class="page-content"> 
+            <div class="black-bg email-text-container">
+              <h2 class="text-primary">Contato</h2>
+              <p>Olá! Agradeço por ter lido o meu portfólio. Caso seja de seu interesse, fique a vontade para me enviar um email.</p>
+            </div>
+            <div class="black-bg email-form-container align-right">
+              <form action="" method="POST" id="email-form">
+                <div class="form-group">
+                  <input type="text" nome="nome" class="formulario" placeholder="Nome" required="" />
+                </div>
+                <div class="form-group">
+                  <input type="email" nome="email" class="formulario" placeholder="Email" required="" />
+                </div>        
+                <div class="form-group mb-30">
+                  <textarea rows="6" nome="mensagem" class="formulario" placeholder="Mensagem" required=""></textarea>
+                </div>        
+                <div>
+                  <button type="submit" class="btn-primary align-right">
+                    Enviar
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </main>
+      </div>    
+    </div>
+  </div>
+  <div class="background-image"></div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="js/scripts.js"></script>
 </body>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"></script>
-<script src="scripts.js"></script>
 </html>
