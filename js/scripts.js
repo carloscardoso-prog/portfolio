@@ -1,51 +1,114 @@
+"use strict";
+//gerencia abas em projetos
 function openTab(evt, id) {
-    $('.tab-content').hide();
-    $('#' + id).show();
-    $('.tab-link').removeClass('active');
-    $(evt.currentTarget).addClass('active');
-  }    
-
-  function initPage() {
-    let pageId = location.hash;
-
-    if(pageId) {
-      highlightMenu($(`.page-link[href^="${pageId}"]`)); 
-      showPage($(pageId));
+    let tabContentElements = document.getElementsByClassName("tab-content");
+    let tabLinkElements = document.getElementsByClassName("tab-link");
+    let idObject = document.getElementById(id);
+    if (isNotNullArray([tabContentElements, tabLinkElements, idObject, evt])) {
+        let arrayTabContent = Array.from(tabContentElements);
+        let arrayTabLink = Array.from(tabLinkElements);
+        let currentEventTarget = evt.currentTarget;
+        arrayTabContent.forEach(tabContentElement => (tabContentElement.style.display = "none"));
+        idObject.style.display = "inherit";
+        arrayTabLink.forEach(tabLinkElement => (tabLinkElement.classList.remove("active")));
+        currentEventTarget.classList.add("active");
+    }
+}
+//verifica se o array passado não é nulo
+function isNotNullArray(values) {
+    return (values.every(value => isNotNull(value)));
+}
+//verifica se o objeto não é nulo
+function isNotNull(value) {
+    return (value !== null && value !== undefined);
+}
+//marca o nome do menu selecionado
+function highlightMenu(menuItems) {
+    let pageLinkObjects = document.getElementsByClassName("page-link");
+    if (isNotNullArray([pageLinkObjects, menuItems])) {
+        let arrayPageLink = Array.from(pageLinkObjects);
+        arrayPageLink.forEach(pageLink => (pageLink.classList.remove('active')));
+        if (menuItems instanceof HTMLElement) {
+            menuItems.classList.add('active');
+        }
+        else {
+            let arrayMenuItems = Array.from(menuItems);
+            arrayMenuItems.forEach(arrayMenu => (arrayMenu.classList.add('active')));
+        }
+    }
+}
+//mostra o menu selecionado
+function showPage(pages) {
+    let pageContentObjects = document.getElementsByClassName('page-content');
+    if (isNotNullArray([pages, pageContentObjects])) {
+        let arrayPageContent = Array.from(pageContentObjects);
+        arrayPageContent.forEach(pageContent => (pageContent.style.display = 'none'));
+        if ((pages instanceof HTMLCollection)) {
+            let arrayPages = Array.from(pages);
+            arrayPages.forEach(function (page) {
+                let pageId = page.getAttribute("href");
+                if (page.classList.contains('active') && isNotNull(pageId)) {
+                    let abaProjeto = document.getElementById(pageId.substring(1));
+                    if (isNotNull(abaProjeto)) {
+                        abaProjeto.style.display = 'inherit';
+                    }
+                }
+            });
+        }
+        else if (pages instanceof HTMLElement) {
+            pages.style.display = 'inherit';
+        }
+    }
+}
+//realiza inicialização da página
+function initPage() {
+    let pageId;
+    if (location.hash) {
+        pageId = location.hash;
+        let objectsPageLink = document.querySelectorAll(`.page-link[href^="${pageId}"]`);
+        let objectPageId = document.getElementById(pageId.substring(1));
+        if (isNotNull(objectPageId) && isNotNull(objectsPageLink)) {
+            highlightMenu(objectsPageLink);
+            showPage(objectPageId);
+        }
     }
     else {
-      pageId = $('.page-link.active').attr('href');
-      showPage($(pageId));
+        pageId = document.getElementsByClassName('page-link');
+        showPage(pageId);
     }
-  }
-
-  function highlightMenu(menuItem) {
-    $('.page-link').removeClass('active');
-    menuItem.addClass('active');
-  }
-
-  function showPage(page) {
-    $('.page-content').hide();
-    page.show();
-  }
-
-  $(document).ready(function(){
-
+}
+//executa o fluxo da padrão da página
+document.addEventListener("DOMContentLoaded", function (event) {
     initPage();
-
-    $('.page-link').click(function(event) {
-      
-      if(window.innerWidth > 991) {
-        event.preventDefault();
-      }
-
-      highlightMenu($(event.currentTarget));
-      showPage($(event.currentTarget.hash));
-    });
-
-    $('.tab-link').on('click', e => {
-      e.preventDefault(); 
-      openTab(e, $(e.target).data('id'));
-    });
-
-    $('.tab-link.active').click();
-  });
+    let pageLinkObjects = document.getElementsByClassName('page-link');
+    let arrayPageLink = Array.from(pageLinkObjects);
+    arrayPageLink.forEach(pageLink => (pageLink.onclick = (clickEvent) => {
+        if (window.innerWidth > 991) {
+            clickEvent.preventDefault();
+        }
+        if (isNotNull(clickEvent.currentTarget)) {
+            let eventString = clickEvent.currentTarget;
+            highlightMenu(eventString);
+            let selectedTabId = eventString.getAttribute('href');
+            if (isNotNull(selectedTabId)) {
+                let selectedObject = document.getElementById(selectedTabId.substring(1));
+                if (isNotNull(selectedObject)) {
+                    showPage(selectedObject);
+                }
+            }
+        }
+    }));
+    let tabLinkObject = document.getElementsByClassName('tab-link');
+    let arrayTabLink = Array.from(tabLinkObject);
+    arrayTabLink.forEach(tabLink => (tabLink.onclick = (clickEvent) => {
+        clickEvent.preventDefault();
+        if (clickEvent.target instanceof HTMLElement) {
+            let targetObject = clickEvent.target.getAttribute('data-id');
+            if (targetObject !== null && clickEvent.target !== null) {
+                openTab(clickEvent, targetObject);
+            }
+        }
+    }));
+    let indexTabActive = arrayTabLink.findIndex(tabLink => tabLink.classList.contains('active'));
+    arrayTabLink[indexTabActive].click();
+});
